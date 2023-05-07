@@ -24,11 +24,11 @@ public class ChallengeAttemptController {
         return ResponseEntity.ok(challengeService.verifyAttempt(challengeAttemptDTO));
     }
 
-    /*@GetMapping
+    @GetMapping
     ResponseEntity<List<ChallengeAttempt>> getStatics(@RequestParam("alias") String alias){
         return ResponseEntity.ok(
                 challengeService.getStatsForUser(alias)
         );
-    }*/
+    }
 
 }
