@@ -1,6 +1,7 @@
 package com.nicoesteban.multiplication.challenge;
 
 import com.nicoesteban.multiplication.user.User;
+import com.nicoesteban.multiplication.user.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -12,12 +13,12 @@ import java.util.List;
 @Service
 public class ChallengeServiceImpl implements ChallengeService {
 
-    //private final UserRepository userRepository;
-    //private final ChallengeAttemptRepository attemptRepository;
+    private final UserRepository userRepository;
+    private final ChallengeAttemptRepository attemptRepository;
 
     @Override
     public ChallengeAttempt verifyAttempt(ChallengeAttemptDTO attemptDto) {
-        /*//Check if the user already exist for that alias, otherwise create it
+        //Check if the user already exist for that alias, otherwise create it
         User user = userRepository.findByAlias(attemptDto.getUserAlias())
                 .orElseGet(() -> {
                     log.info("Creating new user with alias {}", attemptDto.getUserAlias());
@@ -42,30 +43,11 @@ public class ChallengeServiceImpl implements ChallengeService {
         //Stores the attempt
         ChallengeAttempt storedAttempt = attemptRepository.save(checkedAttempt);
 
-        return storedAttempt;*/
-
-        //Check if the attempt is correct
-        boolean isCorrect = attemptDto.getGuess() == attemptDto.getFactorA() * attemptDto.getFactorB();
-
-        log.info("Verifying attempt: {}, * {}", attemptDto.getFactorA(), attemptDto.getFactorB());
-        //We dont use identifiers for now
-        User user = new User(null, attemptDto.getUserAlias());
-
-
-        //Build the domain object
-        ChallengeAttempt checkedAttempt = new ChallengeAttempt(null,
-                user.getId(),//user,
-                attemptDto.getFactorA(),
-                attemptDto.getFactorB(),
-                attemptDto.getGuess(),
-                isCorrect);
-
-        return checkedAttempt;
-
+        return storedAttempt;
     }
 
-    /*@Override
+    @Override
     public List<ChallengeAttempt> getStatsForUser(String userAlias) {
         return attemptRepository.findTop10ByUserAliasOrderByIdDesc(userAlias);
-    }*/
+    }
 }

@@ -21,10 +21,10 @@ public class ChallengeAttempt {
     @GeneratedValue
     private Long id;
 
-    //@ManyToOne(fetch = FetchType.LAZY)
-    //@JoinColumn(name = "USER_ID")
-    //private User user;
-    private Long userId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "USER_ID")
+    private User user;
+    //private Long userId;
     private int factorA;
     private int factorB;
     private int resultAttempt;
