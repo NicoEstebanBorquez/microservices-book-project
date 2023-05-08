@@ -10,6 +10,7 @@ class ChallengeComponent extends React.Component {
             a: '', b: '',
             user: '',
             message: '',
+
             guess: 0,
             lastAttempts: [],
         };
@@ -22,6 +23,7 @@ class ChallengeComponent extends React.Component {
     }
 
     refreshChallenge() {
+
         ApiClient.challenge().then(
             res => {
                 if (res.ok) {
@@ -61,6 +63,7 @@ class ChallengeComponent extends React.Component {
                         }
                         this.updateLastAttempts(this.state.user);
                         this.refreshChallenge();
+
                     });
                 } else {
                    this.updateMessage("Error: server error or not available");
@@ -122,9 +125,11 @@ class ChallengeComponent extends React.Component {
                 {this.state.lastAttempts.length > 0 &&
                     <LastAttemptsComponent lastAttempts={this.state.lastAttempts}/>
                 }
+
             </div>
         );
     }
 }
 
 export default ChallengeComponent;
+
