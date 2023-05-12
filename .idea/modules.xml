@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/challenges-frontend/challenges-frontend.iml" filepath="$PROJECT_DIR$/challenges-frontend/challenges-frontend.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gamification/gamification.iml" filepath="$PROJECT_DIR$/gamification/gamification.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/microservices-book-project.iml" filepath="$PROJECT_DIR$/.idea/microservices-book-project.iml" />
       <module fileurl="file://$PROJECT_DIR$/multiplication/multiplication.iml" filepath="$PROJECT_DIR$/multiplication/multiplication.iml" />
     </modules>
