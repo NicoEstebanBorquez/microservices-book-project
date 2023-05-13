@@ -12,10 +12,10 @@ import java.util.List;
  * This class provides a REST API to POST the attempts from users.
  */
 @Slf4j
-@RestController
 @RequiredArgsConstructor
+@RestController
 @RequestMapping("/attempts")
-public class ChallengeAttemptController {
+class ChallengeAttemptController {
 
     private final ChallengeService challengeService;
 
@@ -25,10 +25,9 @@ public class ChallengeAttemptController {
     }
 
     @GetMapping
-    ResponseEntity<List<ChallengeAttempt>> getStatics(@RequestParam("alias") String alias){
+    ResponseEntity<List<ChallengeAttempt>> getStatistics(@RequestParam("alias") String alias){
         return ResponseEntity.ok(
                 challengeService.getStatsForUser(alias)
         );
     }
-
 }
